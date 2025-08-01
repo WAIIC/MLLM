@@ -225,18 +225,20 @@ def pump_movetome(mc,
     # 升起物体
     print('    升起物体')
     mc.send_coords([XY_START[0], XY_START[1], HEIGHT_SAFE, 0, 180, 90], 20, 0)
-    time.sleep(4)
+    time.sleep(3)
 
     # 搬运物体
     print('    搬运物体')
-    mc.send_coords([XY_END[0], XY_END[1], HEIGHT_SAFE, -90, 50, -80], 20, 0)
-    time.sleep(10)
-
-
+    mc.send_coords([146, -51, HEIGHT_SAFE, -90, 50, -80], 30, 0)
+    time.sleep(3)
+    mc.send_coords([-45, -150, HEIGHT_SAFE+50, -90, 61, -170], 30, 0)
+    time.sleep(2)
+    mc.send_coords([-200, -5, HEIGHT_SAFE, -130, 50, 60], 30, 0)
+    time.sleep(7)
+    # 关闭吸泵
+    pump_off()
 
     # 机械臂归零
     print('    机械臂归零')
     mc.send_angles([0, 0, 0, 0, 0, 0], 40)
     time.sleep(1)
-    # 关闭吸泵
-    pump_off()
