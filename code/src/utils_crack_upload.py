@@ -16,8 +16,8 @@ def start_segmented_image_upload():
         str: 成功时返回图像路径，失败时返回错误信息
     """
     # 配置阿里云API访问密钥
-    access_key_id = 'LTAI5t6RfEbFF2zDnkmkiq37'
-    access_key_secret = 'dBotl7zyIa0vNpf9DELQywANURC2rm'
+    access_key_id = 'PleaseChangeThis'
+    access_key_secret = 'PleaseChangeThis'
 
     config = Config(
         access_key_id=access_key_id,
