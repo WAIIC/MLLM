@@ -13,3 +13,4 @@ openai
 redis
 sounddevice
 pymycobot
+alibabacloud_imageseg20191230==3.0.1
