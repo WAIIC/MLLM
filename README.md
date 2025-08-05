@@ -19,12 +19,11 @@
 
 ## 复现注意
 
-- 需要使用Pyenv进行开发环境隔离（Anaconda暂时没有发行RISCV版本）
-- 需要安装Python 3.12及所需工具包（在Requirements.txt文件夹中）
-- 需要把API_KEY.py中的密钥和KEY换成你自己的，相关base_url和测试可用的模型已经填好
-- 需要确认麦克风ID和扬声器设备
-- 需要确认摄像头和语音正常
-
+- 考虑到Ubuntu限制了直接在系统环境中安装第三方库，因此你需要使用Pyenv进行开发环境隔离（Anaconda暂时没有发行RISCV版本）
+- 需要配置Python 3.12+及所需环境包（在Requirements.txt文件夹中）
+- 将API_KEY.py中的密钥和KEY换成你自己的，相关base_url和测试可用的模型已经填好
+- 请正确安装并检查外设（末端执行器、摄像头与麦克风等）
+  
 ## 特别鸣谢
 
 
