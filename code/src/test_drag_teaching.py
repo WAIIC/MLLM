@@ -1,7 +1,4 @@
-#!/usr/bin/env python3
 # drag_teach.py
-# 同济子豪兄 2024-5-23 2025-07-14 适配 MyCobot280 API
-# 独立运行：python drag_teach.py
 # 按键说明见菜单
 
 import os
