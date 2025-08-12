@@ -30,12 +30,7 @@ def agent_play():
     '''
     # 归零
     back_zero()
-    
-    # print('测试摄像头')
-    # check_camera()
-    
-    # 输入指令
-    # 先回到原点，再把LED灯改为墨绿色，然后把绿色方块放在篮球上
+
     start_record_ok = input('是否开启录音，输入数字录音指定时长，按k打字输入，按c输入默认指令\n')
     if str.isnumeric(start_record_ok):
         DURATION = int(start_record_ok)
@@ -44,21 +39,19 @@ def agent_play():
     elif start_record_ok == 'k':
         order = input('请输入指令')
     elif start_record_ok == 'c':
-        order = '先归零，再摇头，然后把绿色方块放在篮球上'
+        order = '先归零，再摇头'
     else:
         print('无指令，退出')
         # exit()
         raise NameError('无指令，退出')
-    
-    # 智能体Agent编排动作
+
     message.append({"role": "user", "content": order})
     agent_plan_output = eval(agent_plan(message))
     
-    print('智能体编排动作如下\n', agent_plan_output)
-    # plan_ok = input('是否继续？按c继续，按q退出')
+    print('编排动作如下\n', agent_plan_output)
     plan_ok = 'c'
     if plan_ok == 'c':
-        response = agent_plan_output['response'] # 获取机器人想对我说的话
+        response = agent_plan_output['response']
         print('开始语音合成')
         tts(response)                     # 语音合成，导出wav音频文件
         play_wav('temp/tts.wav')          # 播放语音合成音频文件

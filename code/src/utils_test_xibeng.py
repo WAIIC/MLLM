@@ -1,4 +1,4 @@
-#test_xibeng.py
+#utils_test_xibeng.py
 
 from pymycobot import MyCobot280
 from pymycobot import PI_PORT, PI_BAUD  # 当使用树莓派版本的mycobot时，可以引用这两个变量进行MyCobot初始化

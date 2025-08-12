@@ -38,7 +38,7 @@ check_camera()
 llm_led('帮我把LED灯的颜色改为贝加尔湖的颜色')
 
 函数十四：移动物体
-vlm_move(PROMPT='帮我把红色方块放在小猪佩奇上')
+vlm_move(PROMPT='帮我把红色方块放在黑色二维码上')
 
 函数十五：拖动示教
 drag_teach()

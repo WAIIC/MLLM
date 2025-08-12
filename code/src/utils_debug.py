@@ -79,7 +79,7 @@ try:
 except KeyboardInterrupt:
     pass
 
-print("\n👋 程序退出")
+print("\n程序退出")
 mc.send_angles([0, 0, 0, 0, 0, 0], 30)
 time.sleep(2)
 mc.close()

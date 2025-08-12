@@ -1,4 +1,4 @@
-# sound_check.py
+# run_sound_check.py
 # 快速检查语音相关的所有功能：麦克风、录音、扬声器播放声音、语音识别、语音合成
 
 from utils_asr import *             # 录音+语音识别

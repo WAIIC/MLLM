@@ -46,7 +46,6 @@ def extract_ordered_line_coordinates(image_path, output_json_path, num_points=50
     if len(edge_points) < 2:
         raise ValueError("未找到足够的边界点！")
 
-    # 假设第一个和最后一个边界点是起点和终点
     start_point = edge_points[0]
     end_point = edge_points[-1]
 
@@ -113,19 +112,16 @@ def extract_ordered_line_coordinates(image_path, output_json_path, num_points=50
         "points_count": num_points
     }
 
-    # 确保输出目录存在
     os.makedirs(os.path.dirname(output_json_path), exist_ok=True)
 
     # 保存为JSON文件
     with open(output_json_path, 'w') as f:
         json.dump(output, f, indent=4)
 
-    print(f"裂纹坐标已成功保存到 {output_json_path}")
     print(f"起点: ({start_point[0]}, {start_point[1]}), 终点: ({end_point[0]}, {end_point[1]})")
     print(f"共 {num_points} 个有序点")
 
 
-# 示例用法
 image_path = "segmented_image.png"  # 本地图片路径
 output_json_path = "cracks/line_coordinates.json"  # 输出的JSON文件路径
 extract_ordered_line_coordinates(image_path, output_json_path)

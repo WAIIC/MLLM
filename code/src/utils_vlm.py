@@ -44,12 +44,7 @@ SYSTEM_PROMPT_CATCHTOME = '''
 我现在的指令是：
 '''
 SYSTEM_PROMPT_VQA = '''
-告诉我图片中每个物体的名称、类别和作用。每个物体用一句话描述。
-示例：
-连花清瘟胶囊，药品，治疗感冒。
-盘子，生活物品，盛放东西。
-氯雷他定片，药品，治疗抗过敏。
-我现在的指令是：
+
 '''
 
 # ---------- Yi-Vision ----------
@@ -92,10 +87,6 @@ def QwenVL_api(prompt='帮我把红色方块放在钢笔上',
                img_path='temp/vl_now.jpg',
                vlm_option=0,
                max_retry=4):
-    """
-    调用 Qwen-VL 并安全解析 JSON
-    return: dict，如 {"start":"...","start_xyxy":[...], ...}
-    """
 
     if vlm_option==0:
         system=SYSTEM_PROMPT_CATCH
@@ -130,14 +121,12 @@ def QwenVL_api(prompt='帮我把红色方块放在钢笔上',
             )
             raw = res.choices[0].message.content.strip()
 
-            # 去掉可能的 Markdown 代码块标记
             if raw.startswith("```json"):
                 raw = raw[7:]
             if raw.endswith("```"):
                 raw = raw[:-3]
             result = json.loads(raw.strip())
 
-            # 如果是纯问答模式，直接朗读
             if vlm_option != 0:
                 print(result)
                 tts(str(result))
@@ -149,7 +138,7 @@ def QwenVL_api(prompt='帮我把红色方块放在钢笔上',
             print(f"[QwenVL_api] 第 {attempt} 次解析失败: {e}")
             print("原始返回内容 >>>\n", raw, "\n<<<")
             if attempt == max_retry:
-                # 超过重试次数，给出一个空字典，避免外部崩溃
+                # 超过重试次数，给出一个空字典
                 return {"start": "", "start_xyxy": [[0, 0], [0, 0]],
                         "end": "",   "end_xyxy":   [[0, 0], [0, 0]]}
 

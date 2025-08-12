@@ -1,8 +1,6 @@
 # utils_tts.py
 # 语音合成
 
-print('导入语音合成模块')
-
 import os
 import appbuilder
 from API_KEY import *
@@ -29,31 +27,3 @@ def play_wav(wav_file='asset/welcome.wav'):
     prompt = 'aplay -t wav {} -q'.format(wav_file)
     os.system(prompt)
 
-# def play_wav(wav_file='temp/tts.wav'):
-#     '''
-#     播放wav文件
-#     '''
-#     wf = wave.open(wav_file, 'rb')
- 
-#     # 实例化PyAudio
-#     p = pyaudio.PyAudio()
- 
-#     # 打开流
-#     stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
-#                     channels=wf.getnchannels(),
-#                     rate=wf.getframerate(),
-#                     output=True)
-
-#     chunk_size = 1024
-#     # 读取数据
-#     data = wf.readframes(chunk_size)
- 
-#     # 播放音频
-#     while data != b'':
-#         stream.write(data)
-#         data = wf.readframes(chunk_size)
- 
-#     # 停止流，关闭流和PyAudio
-#     stream.stop_stream()
-#     stream.close()
-#     p.terminate()

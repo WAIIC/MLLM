@@ -9,19 +9,16 @@ points = [
     [112, 100], [93, 96], [69, 79], [45, 73]
 ]
 
-# 将坐标点转换为 NumPy 数组以便于计算
 points = np.array(points)
 
 # 定义一个函数来计算两点之间的欧几里得距离
 def distance(p1, p2):
     return np.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
 
-# 选择一个起点（例如第一个点）
 current_point = points[0]
 ordered_points = [current_point.tolist()]
 remaining_points = points[1:]
 
-# 贪心算法：依次选择最近的点
 while len(remaining_points) > 0:
     # 计算当前点到所有剩余点的距离
     distances = [distance(current_point, point) for point in remaining_points]
@@ -35,6 +32,5 @@ while len(remaining_points) > 0:
     # 从剩余点中移除已选择的点
     remaining_points = np.delete(remaining_points, nearest_index, axis=0)
 
-# 打印排序后的坐标
 print("排序后的坐标：")
 print(ordered_points)

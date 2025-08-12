@@ -4,7 +4,7 @@ from utils_robot import robot, handeye
 
 def main() -> None:
     print("=== MyCobot 手眼标定 CLI ===")
-    n = int(input("请输入标定点数(≥4 推荐): "))
+    n = int(input("请输入标定点数: "))#建议是4个
     px_list, wl_list = [], []
     for i in range(n):
         px = tuple(map(int,   input(f"第{i+1}点 像素坐标 x y: ").split()))
@@ -12,7 +12,6 @@ def main() -> None:
         px_list.append(px)
         wl_list.append(wl)
     handeye.calibrate(px_list, wl_list, max_error=2.0)
-    print("标定完成！文件已保存到 temp/handeye.json")
 
 if __name__ == "__main__":
     try:

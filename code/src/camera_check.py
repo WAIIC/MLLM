@@ -6,7 +6,7 @@ cap = cv2.VideoCapture('/dev/video20', cv2.CAP_V4L2)
 
 while True:
     ret, frame = cap.read()
-    if not ret:           # 避免空帧导致 imshow 崩溃
+    if not ret:           # 避免空帧
         print("无法读取画面")
         break
     cv2.imshow('frame', frame)

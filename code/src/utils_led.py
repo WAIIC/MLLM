@@ -19,8 +19,8 @@ def extract_rgb(text):
     raise ValueError("未找到有效RGB值")
 
 
-def llm_led(PROMPT_LED='帮我把LED灯的颜色改为贝加尔湖的颜色'):
-    SYS_PROMPT = '我即将说的这句话中包含一个目标物体，帮我把这个物体的一种可能的颜色，以0-255的RGB像素值形式返回给我，整理成元组格式，例如(255, 30, 60)，直接回复元组本身，以括号开头，不要回复任何中文内容，下面是这句话：'
+def llm_led(PROMPT_LED='把LED灯的颜色改为贝加尔湖的颜色'):
+    SYS_PROMPT = ''
 
     PROMPT = SYS_PROMPT + PROMPT_LED
 

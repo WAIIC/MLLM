@@ -1,4 +1,4 @@
-# crack_move_demo.py
+# run_crack_move_demo.py
 import cv2
 import numpy as np
 import json
@@ -18,38 +18,30 @@ def extract_ordered_line_coordinates(image_path, output_json_path, num_points=50
     if image is None:
         raise ValueError(f"无法读取图片文件 {image_path}，请检查格式是否正确！")
 
-    # 分离透明通道
     if image.shape[2] != 4:
         raise ValueError("图像不包含透明通道！")
     alpha_channel = image[:, :, 3]
 
-    # 将透明通道转换为二值图像
     _, binary = cv2.threshold(alpha_channel, 1, 255, cv2.THRESH_BINARY)
 
-    # 查找轮廓
     contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
-    # 假设最长的轮廓是目标线条
     if len(contours) == 0:
         raise ValueError("未检测到任何轮廓！")
     max_contour = max(contours, key=cv2.contourArea)
 
-    # 提取轮廓上的点
     points = max_contour.reshape(-1, 2)
 
-    # 找到起点和终点（在图像边界上的点）
     def is_on_edge(point, width, height):
         return point[0] == 0 or point[0] == width - 1 or point[1] == 0 or point[1] == height - 1
 
     height, width = binary.shape
 
-    # 找到所有在边界上的点
     edge_points = [point for point in points if is_on_edge(point, width, height)]
 
     if len(edge_points) < 2:
         raise ValueError("未找到足够的边界点！")
 
-    # 假设第一个和最后一个边界点是起点和终点
     start_point = edge_points[0]
     end_point = edge_points[-1]
 

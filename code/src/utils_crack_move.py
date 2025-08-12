@@ -52,7 +52,6 @@ def extract_ordered_line_coordinates(image_path, output_json_path, num_points=50
 
         raise ValueError("未找到足够的边界点！")
 
-    # 假设第一个和最后一个边界点是起点和终点
     start_point = edge_points[0]
     end_point = edge_points[-1]
 
