@@ -105,7 +105,7 @@ def QwenVL_api(prompt='帮我把红色方块放在钢笔上',
         system=SYSTEM_PROMPT_CATCHTOME
 
     client = openai.OpenAI(
-        api_key="sk-39e69b06c77440eaa7a1be063b42a520",
+        api_key="sk-39e6900000000000003b42a520",
         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
     )
 
