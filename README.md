@@ -2,7 +2,7 @@
 ## ——以智能理解重写生产规则，你的全感知智能协作桌面助手
 
 
-![封面](https://youke1.picui.cn/s1/2025/08/05/6891596855f0b.jpg)
+![封面](https://github.com/WAIIC/MLLM/blob/main/%E7%81%B5%E6%99%B0%E6%9C%BA%E6%A2%B0%E8%87%82%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg)
 
 
 ## 项目介绍
